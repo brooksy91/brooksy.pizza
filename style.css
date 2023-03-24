@@ -7,21 +7,21 @@ body {
 
     position: absolute;
     top: auto;
-    left: 35%;
+    left: 25%;
     display: flex;
     margin: 0 auto;
+    font-family: 'Trebuchet MS';
 }
 
 .mainbox {
 
     width: 525px;
     height: 700px;
-    font-family: 'Trebuchet MS';
     color: rgb(0, 0, 0);
     background-color: rgba(170, 170, 170, 0.935);
     text-align: center;
     font-size: 22px;
-    border: 1px solid black;
+    border: 2px solid black;
 
     
 }
@@ -30,11 +30,10 @@ body {
 
     width: 150px;
     height: 700px;
-    font-family: 'Trebuchet MS';
     background-color: rgba(170, 170, 170, 0.935);
     text-align: center;
     font-size: 24px;
-    border: 1px solid black;
+    border: 2px solid black;
 
 
 
