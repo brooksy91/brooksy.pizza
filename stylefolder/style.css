@@ -5,37 +5,22 @@ body {
 
 .masterbox {
 
-    position: absolute;
+    position: fixed;
     top: auto;
-    left: 25%;
+    left: 35%;
     display: flex;
     margin: 0 auto;
     font-family: 'Trebuchet MS';
 }
 
-.mainbox {
+.welcomebox {
 
     width: 525px;
-    height: 700px;
+    height: 100px;
     color: rgb(0, 0, 0);
     background-color: rgba(170, 170, 170, 0.935);
     text-align: center;
     font-size: 22px;
-    border: 2px solid black;
-
-    
-}
-
-.sidefeed {
-
-    width: 150px;
-    height: 700px;
-    background-color: rgba(170, 170, 170, 0.935);
-    text-align: center;
-    font-size: 24px;
-    border: 2px solid black;
-
-
-
+    border: 1px solid black;
 
 }
