@@ -13,6 +13,14 @@ body {
     font-family: 'Trebuchet MS';
 }
 
+.sideimg {
+    
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    
+}
+
 .welcomebox {
 
     width: 525px;
@@ -22,14 +30,6 @@ body {
     text-align: center;
     font-size: 22px;
     border: 1px solid black;
-
-}
-
-.sideimg {
-
-width: 100px;
-height: 100px;
-border: 1px solid black;
 
 }
 
