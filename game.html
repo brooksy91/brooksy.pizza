@@ -39,9 +39,8 @@
       loadSound('sounds/pizzatime.wav');
     bgmusic =
       loadSound('sounds/bgmusic.wav');
-
-
-    }
+  
+  }
 
   //sets the game physical game area
 
@@ -53,7 +52,7 @@
     pizza.speed = 20;
     coin.x = random(width - coin.width);
     coin.y = random(height - coin.height);
-    bgmusic.loop()
+    bgmusic.play();
   }
 
 
