@@ -1,0 +1,90 @@
+<!--load dependancies for game-->
+
+<script src="dependancies/p5.min.js"></script>
+<script src="dependancies/p5sound.js"></script>
+
+<!--begin game script-->
+
+<script>
+
+// declares that these objects will exist within this program
+
+  let pizza;
+  let coin;
+  let coinsound;
+
+//loads the imgs before game engages
+
+  function preload() {
+    pizza = {
+      img: loadImage('imgs/pizza.png'),
+      width: 200,
+      height: 200,
+    };
+    coin = {
+      img: loadImage('imgs/coin.png'),
+      width: 50,
+      height: 50,
+    };
+    coinsound = loadSound('imgs/coinsound.wav');
+  }
+
+  //sets the game physical game area
+
+  function setup() {
+    createCanvas(1920, 1080);
+    pizza.x = width/2;
+    pizza.y = height/2;
+    pizza.speed = 15;
+    coin.x = random(width - coin.width);
+    coin.y = random(height - coin.height);
+  }
+
+// assigns commands for keys
+
+  function draw() {
+    background(200);
+
+    if (keyIsDown(87)) { // W
+      pizza.y -= pizza.speed;
+    }
+    if (keyIsDown(83)) { // S
+      pizza.y += pizza.speed;
+    }
+    if (keyIsDown(65)) { // A
+      pizza.x -= pizza.speed;
+    }
+    if (keyIsDown(68)) { // D
+      pizza.x += pizza.speed;
+    }
+
+// constrains objects to playfield
+
+    pizza.x = constrain(pizza.x, pizza.width/2, width - pizza.width/2);
+    pizza.y = constrain(pizza.y, pizza.height/2, height - pizza.height/2);
+
+// logic for coin collection
+
+    if (dist(pizza.x, pizza.y, coin.x, coin.y) < pizza.width/2 + coin.width/2) {
+      coin.x = random(width - coin.width);
+      coin.y = random(height - coin.height);
+      coinsound.play();
+    }
+
+// places the objects into the playfield
+
+    image(pizza.img, pizza.x - pizza.width/2, pizza.y - pizza.height/2, pizza.width, pizza.height);
+    image(coin.img, coin.x, coin.y, coin.width, coin.height);
+
+// creates border and style
+
+    stroke(0);
+    strokeWeight(5);
+    noFill();
+    rect(0, 0, width, height);
+  }
+
+
+
+
+</script>
