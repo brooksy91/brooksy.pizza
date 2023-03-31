@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="css/game.css">
+<div class="gamebox">
+
 <!--load dependancies for game-->
 
 <script src="dependancies/p5.min.js"></script>
@@ -12,10 +15,14 @@
   let pizza;
   let coin;
   let coinsound;
+  let pizzatime;
+  let bgmusic;
+  let scoreboard = 0;
 
-//loads the imgs before game engages
+//loads objects before game engages
 
   function preload() {
+   
     pizza = {
       img: loadImage('imgs/pizza.png'),
       width: 200,
@@ -26,21 +33,31 @@
       width: 100,
       height: 100,
     };
-    coinsound = loadSound('imgs/coinsound.wav');
-  }
+    coinsound = 
+      loadSound('sounds/coinsound.wav');
+    pizzatime =
+      loadSound('sounds/pizzatime.wav');
+    bgmusic =
+      loadSound('sounds/bgmusic.wav');
+
+
+    }
 
   //sets the game physical game area
 
   function setup() {
+    textFont('Trebuchet MS');
     createCanvas(1920, 1080);
     pizza.x = width/2;
     pizza.y = height/2;
-    pizza.speed = 15;
+    pizza.speed = 20;
     coin.x = random(width - coin.width);
     coin.y = random(height - coin.height);
+    bgmusic.loop()
   }
 
-// assigns commands for keys
+
+// key assignments
 
   function draw() {
     background(200);
@@ -58,6 +75,12 @@
       pizza.x += pizza.speed;
     }
 
+
+// places the objects into the playfield
+
+  image(pizza.img, pizza.x - pizza.width/2, pizza.y - pizza.height/2, pizza.width, pizza.height);
+  image(coin.img, coin.x, coin.y, coin.width, coin.height);
+
 // constrains objects to playfield
 
     pizza.x = constrain(pizza.x, pizza.width/2, width - pizza.width/2);
@@ -69,12 +92,13 @@
       coin.x = random(width - coin.width);
       coin.y = random(height - coin.height);
       coinsound.play();
+      scoreboard += 1;
+      
+      if (scoreboard % 10 === 0 && !scoreboard !== 0) {
+        pizzatime.play();
+      }
+
     }
-
-// places the objects into the playfield
-
-    image(pizza.img, pizza.x - pizza.width/2, pizza.y - pizza.height/2, pizza.width, pizza.height);
-    image(coin.img, coin.x, coin.y, coin.width, coin.height);
 
 // creates border and style
 
@@ -82,9 +106,20 @@
     strokeWeight(5);
     noFill();
     rect(0, 0, width, height);
-  }
+  
+  
+  textSize(32);
+  textAlign(LEFT, TOP);
+  fill(255);
+  text(`BITCOINS : ${scoreboard} BTC`, 10, 10)
+  
+}
+
+
+
 
 
 
 
 </script>
+</div>
